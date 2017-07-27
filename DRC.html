@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SIMILE Widgets | Exhibit | Examples | Disaster Research</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    
+    <link href="drc.js" type="application/json" rel="exhibit/data"/>
+    
+    <script src="http://api.simile-widgets.org/exhibit/HEAD/exhibit-api.js"></script>
+    <link rel="exhibit-extension" href="http://api.simile-widgets.org/exhibit/HEAD/extensions/map/map-extension.js"/>
+    <link rel="exhibit-extension" href="http://api.simile-widgets.org/exhibit/HEAD/extensions/time/time-extension.js"/>
+    
+  </head>
+                        
+  <body>
+  <td id="sidebar">
+                <h1>Disasters</h1>
+                <p>Here is the <a href="drc.js" target="_blank">Exhibit JSON data file</a>.
+                
+                <div id="exhibit-browse-panel">
+                    <b>Search:</b>
+                    <div data-ex-role="facet" data-ex-facet-class="TextSearch"></div>
+					<div data-ex-role="facet" data-ex-expression=".location" data-ex-facet-label="location" data-ex-height="10em" data-ex-color-coder="party-colors"></div>
+                    <div data-ex-role="facet" data-ex-expression=".Date" data-ex-facet-label="date" data-ex-height="4em"></div>
+                </div>
+					
+                    <hr/>
+                    
+               
+            </td>
+			 <div data-ex-role="viewPanel" data-ex-initial-view="0"                         data-ex-formats="date { mode: medium; show: date }">
+
+                    <div class="map-lens" data-ex-role="lens" style="display: none;">
+                        <div><img data-ex-src-content=".imageURL"
+                        alt="portrait" /></div>
+                        <div data-ex-content=".label"></div>
+                        <div data-ex-content=".date"></div>
+						<div data-ex-content=".location"></div>
+                    </div>
+                   
+                    <div data-ex-role="view"
+                        data-ex-view-class="Map"
+                        data-ex-label="Disasters"
+                        data-ex-latlng=".deathLatLng"
+                        data-ex-autoposition = "true"
+                        data-ex-max-auto-zoom = "7"
+                        data-ex-bubble-width="200"
+                        data-ex-color-key=".Disaster-type"
+                        data-ex-color-coder="Disaster type"
+                        data-ex-select-coordinator="label"
+                        >
+                    </div>
+					
+					
+					</div>
+                        
+			
+			
+    <div data-ex-role="facet" data-ex-expression=".Disaster-type" data-ex-facet-label="Disaster type" data-ex-height="10px"></div>
+    <div data-ex-role="view" data-ex-label="List"></div>
+	
+  </body>
+</html>
